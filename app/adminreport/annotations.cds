@@ -71,7 +71,7 @@ annotate service.ExpenseItems with @(
     UI.LineItem : [
         {
             $Type : 'UI.DataField',
-            Label : 'Description',
+            Label : 'Ddescription',
             Value : description
         },
         {
@@ -84,35 +84,20 @@ annotate service.ExpenseItems with @(
             Label : 'Currency',
             Value : currency_code
         },
-        {
-            $Type : 'UI.DataFieldForUrl',
-            Label : 'Receipt',
-            Url : { $Path : 'receipt/$value' },
-            Value : { $Path : 'receipt' }
-        }
-    ],
-    UI.Identification : [
+        
         {
             $Type : 'UI.DataField',
-            Label : 'Description',
-            Value : description
+            Label : 'Receipty',
+            Value: receipt
         },
         {
-            $Type : 'UI.DataField',
-            Label : 'Amount',
-            Value : amount
-        },
-        {
-            $Type : 'UI.DataField',
-            Label : 'Currency',
-            Value : currency_code
-        },
-        {
-            $Type : 'UI.DataFieldForUrl',
-            Label : 'Receipt',
-            Url : { $Path : 'receipt/$value' },
-            Value : { $Path : 'receipt' }
-        }
+    $Type : 'UI.DataFieldForUrl',
+    Label : 'Receipt',
+    Url   : receiptUrl,
+    Value : 'Download',
+    Target: '_blank'
+}
+
     ]
 );
 annotate service.Expenses with {
@@ -136,38 +121,6 @@ annotate service.Expenses with {
         ],
     }
 };
-annotate AdminService.ExpenseItems with {
-  receipt @(
-    UI.DataFieldWithUrl : {
-      Value : receipt,
-      Url   : receipt,            // will call $value stream
-      Label : 'Download Receipt'
-    },
-    UI.IsImageURL : true          // renders as image (if it’s an image type)
-  );
-};
-annotate service.ExpenseItems with @(
-  UI.HeaderInfo : {
-    TypeName       : 'Expense Item',
-    TypeNamePlural : 'Expense Items',
-    Title          : { Value : description },
-    Description    : { Value : amount }
-  },
 
-  UI.FieldGroup #ItemInfo : {
-    Data : [
-      { Value : description, Label : 'Description' },
-      { Value : amount,      Label : 'Amount' },
-      { Value : currency,    Label : 'Currency' },
-      {
-        $Type    : 'UI.DataFieldForFileUpload',
-        Value    : { $Path : 'receipt' },
-        Label    : 'Upload Receipt',
-        FileName : { $Path : 'description' },
-        MimeType : 'image/png'
-      }
-    ]
-  }
-);
 
 

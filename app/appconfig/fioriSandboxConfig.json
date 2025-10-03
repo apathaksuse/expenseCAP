@@ -1,0 +1,88 @@
+{
+  "services": {
+    "LaunchPage": {
+      "adapter": {
+        "config": {
+          "catalogs": [],
+          "groups": [
+            {
+              "id": "Expenses",
+              "title": "Expenses",
+              "isPreset": true,
+              "isVisible": true,
+              "isGroupLocked": false,
+              "tiles": [
+                {
+                  "id": "CreateExpenses",
+                  "tileType": "sap.ushell.ui.tile.StaticTile",
+                  "properties": {
+                    "title": "Create Expenses",
+                    "targetURL": "#Expenses-create"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "Administration",
+              "title": "Administration",
+              "isPreset": true,
+              "isVisible": true,
+              "isGroupLocked": false,
+              "tiles": [
+                {
+                  "id": "ManageExpenses",
+                  "tileType": "sap.ushell.ui.tile.StaticTile",
+                  "properties": {
+                    "title": "Manage Expenses",
+                    "targetURL": "#Expenses-manage"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "NavTargetResolution": {
+      "config": {
+        "enableClientSideTargetResolution": true
+      }
+    },
+    "ClientSideTargetResolution": {
+      "adapter": {
+        "config": {
+          "inbounds": {
+            "CreateExpenses": {
+              "semanticObject": "Expenses",
+              "action": "create",
+              "title": "Create Expenses",
+              "signature": {
+                "parameters": {},
+                "additionalParameters": "ignored"
+              },
+              "resolutionResult": {
+                "applicationType": "SAPUI5",
+                "additionalInformation": "SAPUI5.Component=com.demo.expensereport.employeeexpense",
+                "url": "employeeexpense/webapp"
+              }
+            },
+            "ManageExpenses": {
+              "semanticObject": "Expenses",
+              "action": "manage",
+              "title": "Manage Expenses",
+              "signature": {
+                "parameters": {},
+                "additionalParameters": "allowed"
+              },
+              "resolutionResult": {
+                "applicationType": "SAPUI5",
+                "additionalInformation": "SAPUI5.Component=com.demo.adminreport.adminreport",
+                "url": "adminreport/webapp"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

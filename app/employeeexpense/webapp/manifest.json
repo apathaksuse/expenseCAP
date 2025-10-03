@@ -24,7 +24,20 @@
           "odataVersion": "4.0"
         }
       }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "intent-Expenses-create": {
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          },
+          "semanticObject": "Expenses",
+          "action": "create"
+        }
+      }
     }
+    
   },
   "sap.ui": {
     "technology": "UI5",

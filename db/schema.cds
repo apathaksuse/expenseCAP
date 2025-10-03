@@ -23,4 +23,6 @@ entity ExpenseItems : cuid, managed {
   amount      : Decimal(9,2);
   currency    : Currency;
   receipt     : LargeBinary @Core.MediaType : 'image/png';
+  // Computed virtual URL for FE
+  receiptUrl  : String @Core.Computed : true;
 }

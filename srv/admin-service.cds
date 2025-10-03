@@ -1,6 +1,6 @@
 using com.demo.expenses as db from '../db/schema';
 
-service AdminService {
+service AdminService @(requires: 'admin') {
   // CORRECT SYNTAX FOR BOUND ACTIONS ON PROJECTION
 entity Expenses as projection on db.Expenses 
 actions {

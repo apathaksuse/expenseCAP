@@ -35,5 +35,21 @@
     "app/employeeexpense",
     "app/adminreport",
     "app/adminreport"
-  ]
+  ],"cds": {
+    "requires": {
+      "[development]": {
+        "auth": {
+          "kind": "mocked",
+          "users": {
+            "alice": {
+              "roles": ["support","admin"]
+            },
+            "bob": {
+              "roles": ["support"]
+            }
+          }
+        }
+      }
+    }
+  }
 }

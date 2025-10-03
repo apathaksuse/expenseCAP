@@ -24,6 +24,18 @@
           "odataVersion": "4.0"
         }
       }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "Expenses-manage": {
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          },
+          "semanticObject": "Expenses",
+          "action": "manage"
+        }
+      }
     }
   },
   "sap.ui": {
@@ -134,11 +146,6 @@
               "editableHeaderContent": false,
               "contextPath": "/Expenses",
               "navigation": {
-                "items": {
-                  "detail": {
-                    "route": "ExpenseItemsObjectPage"
-                  }
-                }
               }
             }
           }
